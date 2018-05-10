@@ -2437,6 +2437,8 @@ hash_rtx_cb (const_rtx x, machine_mode mode,
     case POST_INC:
     case PRE_MODIFY:
     case POST_MODIFY:
+      invalidate_dest (XEXP (x, 0));
+      /* Fall through. */
     case PC:
     case CC0:
     case CALL:
